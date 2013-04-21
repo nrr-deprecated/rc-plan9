@@ -1,0 +1,6 @@
+#! /usr/bin/env rc
+
+TERM=dumb
+plumber
+SHELL=rc
+exec acme $*
