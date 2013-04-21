@@ -4,3 +4,4 @@ TERM=dumb
 plumber
 SHELL=rc
 exec acme $*
+
