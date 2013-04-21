@@ -4,17 +4,55 @@ editor = acme
 
 # Github
 type is text
-data matches 'GH/([a-zA-z]+)/([a-zA-Z_\-]+)#([0-9]+)'
+data matches 'GH/([a-zA-Z]+)/([a-zA-Z0-9_\-]+)#([0-9]+)'
 plumb to web
 plumb start web http://github.com/$1/$2/issues/$3
 
 type is text
-data matches 'GH/([a-zA-z]+)/([a-zA-Z_\-]+)'
+data matches 'GH/([a-zA-Z]+)/([a-zA-Z0-9_\-]+):([0-9]+)'
+plumb to web
+plumb start web http://github.com/$1/$2/pull/$3
+
+type is text
+data matches 'GH/([a-zA-z]+)/([a-zA-Z0-9_\-]+)'
 plumb to web
 plumb start web http://github.com/$1/$2
 
-# Turner JIRA
+# Bitbucket
 type is text
-data matches '(APPSUPPORT-[0-9]+)'
+data matches 'BB/([a-zA-Z+)/([a-zA-Z0-9_\-]+)'
+plumb to web
+plumb start web http://bitbucket.org/$1/$2
+
+# Turner
+type is text
+data matches 'TTC:([A-Z]+-[0-9]+)'
 plumb to web
 plumb start web http://tickets.turner.com/browse/$1
+
+type is text
+data matches 'dmtbuild:([A-Z\-]+)'
+plumb to web
+plumb start web http://dmtbuild.turner.com/browse/$
+
+# Atlassian
+type is text
+data matches '(JSP|JST|EHSP|CWDSUP|CSP|BSP|FSH)-([0-9]+)'
+plumb to web
+plumb start web https://support.atlassian.com/browse/$1-$2
+
+# Contegix
+type is text
+data matches '(CNT-[0-9]+.[0-9]+)'
+plumb to web
+plumb start web https://noctane.contegix.com/noc/tickets/$1
+
+type is text
+data matches 'CJC:([A-Z]+-[0-9]+)'
+plumb to web
+plumb start web https://contegix.jira.com/browse/$1
+
+type is text
+data matches 'CCC:([A-Z]+-[0-9]+)'
+plumb to web
+plumb start web https://collab.contegix.com/browse/$1
