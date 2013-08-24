@@ -33,7 +33,7 @@ plumb start web http://tickets.turner.com/browse/$1
 type is text
 data matches 'dmtbuild:([A-Z\-]+)'
 plumb to web
-plumb start web http://dmtbuild.turner.com/browse/$
+plumb start web http://dmtbuild.turner.com/browse/$1
 
 # Atlassian
 type is text
